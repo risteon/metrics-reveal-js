@@ -25,7 +25,6 @@
 		<div class="reveal">
 			<div class="slides">
         <section><h3>Measuring Performance</h3>
-          <section></section>
           <section data-markdown>
           	<textarea data-template>
 #### Comparing Apples to Oranges?
@@ -77,13 +76,19 @@
 | Actual: No | FP              | TN               |
           	</textarea>
           </section>
+          <section data-markdown>
+          	<textarea data-template>
+![Type I/II Error](type_1_2_error.jpg)
+          	</textarea>
+          </section>
           <section>
 					<script type="math/tex; mode=display">
             \text{Precision} = \frac{TP}{TP + FP}\\
             \text{Recall} = \frac{TP}{TP + FN}\\
+            \text{Accuracy} = \frac{TP+TN}{TP + FP + TN + FN}\\
             \text{IoU} = \frac{TP}{TP + FP + FN}\\
 					</script>
-            <font size="+2">More available, e.g. Accuracy, F1-Score</font>
+            <font size="+2">More available, e.g. Specificity, F1-Score</font>
           </section>
         </section>
         <section><h3>Detection Metrics</h3>
@@ -134,10 +139,24 @@
             </textarea>
           </section>
         </section>
-        <section><h3>Tracking</h3>
+        <section><h3>Multi target Tracking</h3>
           <section data-markdown>
           	<textarea data-template>
 ![Tracking](tracking.png)
+          	</textarea>
+          </section>
+          <section data-markdown>
+          	<textarea data-template>
+#### CLEAR MOT 
+![CLEAR MOT](clearmot.png)
+
+<sup><sup>K. Bernardin, R. Stiefelhagen: Evaluating Multiple Object Tracking Performance: The CLEAR MOT Metrics. JIVP 2008</sup></sup>
+          	</textarea>
+          </section>
+          <section data-markdown>
+          	<textarea data-template>
+#### Mostly-Tracked/Partly-Tracked/Mostly-Lost  
+<sup><sup>Y. Li, C. Huang, R. Nevatia: Learning to associate: HybridBoosted multi-target tracker for crowded scene. CVPR 2009</sup></sup>
           	</textarea>
           </section>
         </section>
