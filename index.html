@@ -47,31 +47,56 @@
           </section>
         </section>
         <section><h3>Classification Metrics</h3>
-          <section></section>
           <section data-markdown>
           	<textarea data-template>
-#### Binary classification
-|               | Predicted: True | Predicted: False |
-|---------------|-----------------|------------------|
-| Actual: True  |                 |                  |
-| Actual: False |                 |                  |
+![Classification](classification.png)
           	</textarea>
           </section>
-          <section>
-					<script type="math/tex; mode=display">
-            Precision = \frac{TP}{TP + FP}\\
-            Recall = \frac{TP}{TP + FN}\\
-            IoU = \frac{TP}{TP + FP + FN}\\
-					</script>
-          </section>
-        </section>
-        <section><h3>Detection Metrics</h3>
-          <section></section>
           <section data-markdown>
           	<textarea data-template>
 #### Requirements
 
-* List of detections with (decreasing) confidence scores
+* Classificator outputs a class for every item (hard decisions)
+          	</textarea>
+          </section>
+          <section data-markdown>
+          	<textarea data-template>
+#### Binary classification: Definitions
+|               | Predicted: Yes | Predicted: No |
+|---------------|-----------------|------------------|
+| Actual: Yes  |                 |                  |
+| Actual: No |                 |                  |
+          	</textarea>
+          </section>
+          <section data-markdown>
+          	<textarea data-template>
+#### Binary classification: Definitions
+|               | Predicted: Yes | Predicted: No |
+|---------------|-----------------|------------------|
+| Actual: Yes  | TP              | FP               |
+| Actual: No | FN              | TN               |
+          	</textarea>
+          </section>
+          <section>
+					<script type="math/tex; mode=display">
+            \text{Precision} = \frac{TP}{TP + FP}\\
+            \text{Recall} = \frac{TP}{TP + FN}\\
+            \text{IoU} = \frac{TP}{TP + FP + FN}\\
+					</script>
+            <font size="+2">More available, e.g. Accuracy, F1-Score</font>
+          </section>
+        </section>
+        <section><h3>Detection Metrics</h3>
+          <section data-markdown>
+          	<textarea data-template>
+![Detection](detection.jpg)
+          	</textarea>
+          </section>
+          <section data-markdown>
+          	<textarea data-template>
+#### Requirements
+
+* Detector outputs detections with (decreasing) confidence scores
 * Definition of 'hit', often $\text{IoU}\left(\text{Detection},\text{Obj}\right)\geq\text{threshold}$
 * Penalize multiple detections?
 * Define which objects you want to consider (difficulty)
@@ -109,14 +134,10 @@
           </section>
         </section>
         <section><h3>Tracking</h3>
-          <section></section>
           <section data-markdown>
-            <textarea data-template>
-#### Multiple classes
-
-* Averaging over all classes (mIoU, mAP)
-* Detection: no consideration of spatial correctness vs. correct class
-            </textarea>
+          	<textarea data-template>
+![Tracking](tracking.png)
+          	</textarea>
           </section>
         </section>
         <section><h3>Shortcomings</h3>
