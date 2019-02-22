@@ -73,8 +73,8 @@
 #### Binary classification: Definitions
 |               | Predicted: Yes | Predicted: No |
 |---------------|-----------------|------------------|
-| Actual: Yes  | TP              | FP               |
-| Actual: No | FN              | TN               |
+| Actual: Yes  | TP              | FN               |
+| Actual: No | FP              | TN               |
           	</textarea>
           </section>
           <section>
@@ -119,7 +119,8 @@
   
   				<section><h4>Average Orientation Similarity (AOS)</h4>
 					<script type="math/tex; mode=display">
-            AOS = \frac{1}{11}\sum_{r\in\{0, 0.1, \dots, 1\}} \max_{\widetilde{r}:\widetilde{r}\geq{} r}p\left(\widetilde{r}\right)
+            AOS = \frac{1}{11}\sum_{r\in\{0, 0.1, \dots, 1\}} \max_{\widetilde{r}:\widetilde{r}\geq{} r}s\left(\widetilde{r}\right)\\
+            s(r) = \frac{1}{|\mathcal{D}(r)|}\sum_{i\in\mathcal{D}(r)}\frac{1+\cos{}\Delta_\theta^{(i)}}{2}\delta_i
 					</script>
             <font size="+2">Geiger, A., Lenz, P., & Urtasun, R. (2012). Are we ready for Autonomous Driving? The KITTI Vision Benchmark Suite. Computer Vision and Pattern Recognition), 3354–3361.</font>
           </section>
@@ -148,6 +149,8 @@
 
 * Averaging over all classes (mIoU, mAP)
 * Detection: no consideration of spatial correctness vs. correct class
+* No probabilistic confidence
+* 3D detection: no 3D-IoU implemented (not popular?)
             </textarea>
           </section>
         </section>
