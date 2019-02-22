@@ -24,18 +24,111 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-        <section>
-            <h3>The Lorenz Equations</h3>
+        <section><h3>Measuring Performance</h3>
+          <section></section>
+          <section data-markdown>
+          	<textarea data-template>
+#### Comparing Apples to Oranges?
+![Apples vs. Oranges](apples_oranges.png)
+          	</textarea>
+          </section>
+          <section><h4>Metrics make things easily comparable</h4>
+					<script type="math/tex; mode=display">
+            f_{\text{metric}}: \mathbb{R}^{n_{\text{target}}}\times{}\mathbb{R}^{n_{prediction}}\to \mathbb{R}
+					</script>
+          </section>
+          <section data-markdown>
+          	<textarea data-template>
+* Classification
+* Detection
+* Tracking
+* Shortcomings
+          	</textarea>
+          </section>
+        </section>
+        <section><h3>Classification Metrics</h3>
+          <section></section>
+          <section data-markdown>
+          	<textarea data-template>
+#### Binary classification
+|               | Predicted: True | Predicted: False |
+|---------------|-----------------|------------------|
+| Actual: True  |                 |                  |
+| Actual: False |                 |                  |
+          	</textarea>
+          </section>
+          <section>
+					<script type="math/tex; mode=display">
+            Precision = \frac{TP}{TP + FP}\\
+            Recall = \frac{TP}{TP + FN}\\
+            IoU = \frac{TP}{TP + FP + FN}\\
+					</script>
+          </section>
+        </section>
+        <section><h3>Detection Metrics</h3>
+          <section></section>
+          <section data-markdown>
+          	<textarea data-template>
+#### Requirements
 
-						<div class="fragment">
-							\[\begin{aligned}
-							\dot{x} &amp; = \sigma(y-x) \\
-							\dot{y} &amp; = \rho x - y - xz \\
-							\dot{z} &amp; = -\beta z + xy
-							\end{aligned} \]
-						</div>
+* List of detections with (decreasing) confidence scores
+* Definition of 'hit', often $\text{IoU}\left(\text{Detection},\text{Obj}\right)\geq\text{threshold}$
+* Penalize multiple detections?
+* Define which objects you want to consider (difficulty)
+          	</textarea>
+          </section>
+          <section data-markdown>
+          	<textarea data-template>
+#### Precision Recall Curve
+![PR Curvel](precision_recall_curve.png)
+
+<sub><sub><sub>Adjusting the detection threshold gives an 'operating point' on the curve.</sub></sub></sub>
+          	</textarea>
+          </section>
+          <section><h4>Average Precision (AP)</h4>
+					<script type="math/tex; mode=display">
+            AP = \frac{1}{11}\sum_{r\in\{0, 0.1, \dots, 1\}} \max_{\widetilde{r}:\widetilde{r}\geq{} r}p\left(\widetilde{r}\right)
+					</script>
+            <font size="+2">Everingham, M., Luc, ·, Gool, V., Williams, C. K. I., Winn, J., Zisserman, A., … Zisserman, A. (n.d.). The PASCAL Visual Object Classes (VOC) Challenge. International Journal of Computer Vision Manuscript.</font>
+          </section>
+  
+  				<section><h4>Average Orientation Similarity (AOS)</h4>
+					<script type="math/tex; mode=display">
+            AOS = \frac{1}{11}\sum_{r\in\{0, 0.1, \dots, 1\}} \max_{\widetilde{r}:\widetilde{r}\geq{} r}p\left(\widetilde{r}\right)
+					</script>
+            <font size="+2">Geiger, A., Lenz, P., & Urtasun, R. (2012). Are we ready for Autonomous Driving? The KITTI Vision Benchmark Suite. Computer Vision and Pattern Recognition), 3354–3361.</font>
+          </section>
+          <section data-markdown>
+            <textarea data-template>
+#### KITTI Detection Variants
+
+* Image Plane
+* Bird View
+* Bird View + z-axis aligned 3D consideration
+            </textarea>
+          </section>
+        </section>
+        <section><h3>Tracking</h3>
+          <section></section>
+          <section data-markdown>
+            <textarea data-template>
+#### Multiple classes
+
+* Averaging over all classes (mIoU, mAP)
+* Detection: no consideration of spatial correctness vs. correct class
+            </textarea>
+          </section>
+        </section>
+        <section><h3>Shortcomings</h3>
+          <section></section>
+          <section data-markdown>
+            <textarea data-template>
+#### Multiple classes
+
+* Averaging over all classes (mIoU, mAP)
+* Detection: no consideration of spatial correctness vs. correct class
+            </textarea>
+          </section>
         </section>
 			</div>
 		</div>
@@ -60,6 +153,8 @@
 					{ src: 'plugin/markdown/markdown.js' },
           { src: 'plugin/math/math.js', async: true },
 					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/markdown/marked.js', async: true },
+					{ src: 'plugin/markdown/markdown.js', async: true },
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
 				]
 			});
