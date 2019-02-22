@@ -56,6 +56,7 @@
 #### Requirements
 
 * Classificator outputs a class for every item (hard decisions)
+* Aggregate predictions over whole dataset
           	</textarea>
           </section>
           <section data-markdown>
@@ -110,9 +111,7 @@
           <section data-markdown>
           	<textarea data-template>
 #### Precision Recall Curve
-![PR Curvel](precision_recall_curve.png)
-
-<sub><sub><sub>Adjusting the detection threshold gives an 'operating point' on the curve.</sub></sub></sub>
+![PR Curvel](precision_recall_kitti.png) <!-- .element height="50%" width="50%" -->
           	</textarea>
           </section>
           <section><h4>Average Precision (AP)</h4>
@@ -131,7 +130,7 @@
           </section>
           <section data-markdown>
             <textarea data-template>
-#### KITTI Detection Variants
+#### KITTI Object Detection Variants
 
 * Image Plane
 * Bird View
@@ -167,9 +166,15 @@
 #### Multiple classes
 
 * Averaging over all classes (mIoU, mAP)
+* No consideration of class imbalances
 * Detection: no consideration of spatial correctness vs. correct class
+            </textarea>
+          </section>
+          <section data-markdown>
+            <textarea data-template>
 * No probabilistic confidence
 * 3D detection: no 3D-IoU implemented (not popular?)
+* Multiple tasks - multiple metrics
             </textarea>
           </section>
         </section>
